@@ -433,6 +433,17 @@ export function useNavigation() {
                 permission: Permissions.ADMIN_SUBDOMAINS_VIEW,
                 group: 'infrastructure',
             },
+            {
+                id: 'admin-status-page',
+                name: t('nav.statusPage'),
+                title: t('nav.statusPage'),
+                url: '/admin/status-page',
+                icon: Activity,
+                isActive: currentPath.value.startsWith('/admin/status-page'),
+                category: 'admin' as const,
+                permission: Permissions.ADMIN_SETTINGS_VIEW,
+                group: 'system',
+            },
             // Content
             {
                 id: 'admin-realms',

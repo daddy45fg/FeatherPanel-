@@ -28,12 +28,11 @@
  * SOFTWARE.
  */
 
-use App\App;
 use App\Controllers\Public\StatusController;
 use Symfony\Component\HttpFoundation\Request;
 
-return function ($routes) {
-    // Get public status summary (public API, no auth required)
+return function (RouteCollection $routes): void {
+    // GET public status summary (public API, no auth required)
     App::getInstance(true)->registerApiRoute(
         $routes,
         'public-status-summary',
@@ -44,7 +43,7 @@ return function ($routes) {
         ['GET']
     );
 
-    // Get public node list (public API, no auth required)
+    // GET public node list (public API, no auth required)
     App::getInstance(true)->registerApiRoute(
         $routes,
         'public-status-nodes',
@@ -55,7 +54,7 @@ return function ($routes) {
         ['GET']
     );
 
-    // Get public status page configuration (public API, no auth required)
+    // GET public status page configuration (public API, no auth required)
     App::getInstance(true)->registerApiRoute(
         $routes,
         'public-status-config',

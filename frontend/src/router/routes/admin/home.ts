@@ -118,6 +118,11 @@ const adminRoutes: RouteRecordRaw[] = [
         component: () => import('@/pages/admin/Subdomains.vue'),
     },
     {
+        path: '/admin/status-page',
+        name: 'AdminStatusPage',
+        component: () => import('@/pages/admin/StatusPage.vue'),
+    },
+    {
         path: '/admin/plugins',
         name: 'AdminPlugins',
         component: () => import('@/pages/admin/Plugins.vue'),

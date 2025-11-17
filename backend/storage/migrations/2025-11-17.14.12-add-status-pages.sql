@@ -1,0 +1,22 @@
+CREATE TABLE status_pages (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    uuid VARCHAR(36) UNIQUE NOT NULL,
+    domain VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL DEFAULT 'FeatherPanel Status',
+    company_name VARCHAR(255) NOT NULL DEFAULT 'FeatherPanel',
+    support_email VARCHAR(255),
+    is_active BOOLEAN DEFAULT FALSE,
+    show_node_names BOOLEAN DEFAULT TRUE,
+    show_resource_usage BOOLEAN DEFAULT TRUE,
+    show_locations BOOLEAN DEFAULT FALSE,
+    auto_refresh_enabled BOOLEAN DEFAULT TRUE,
+    auto_refresh_interval INT DEFAULT 30,
+    ssl_status ENUM('pending', 'active', 'failed') DEFAULT 'pending',
+    cloudflare_zone_id VARCHAR(255),
+    cloudflare_record_id VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE KEY (domain),
+    INDEX (ssl_status),
+    INDEX (is_active)
+);
